@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Provider } from 'react-redux';
 import firebase from 'firebase';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import { Header } from './components/common';
 import LoginForm from './components/LoginForm';
 
-const store = createStore(reducers);
+const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
 class App extends Component {
 
