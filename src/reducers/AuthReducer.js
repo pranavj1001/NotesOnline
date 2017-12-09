@@ -24,7 +24,7 @@ export default (state = INITIAL_STATE, action) => {
     case LOGIN_USER_START:
       return { ...state, loading: true, error: '' };
     case LOGIN_USER_SUCCESS:
-      return { ...state, user: action.payload, error: '', loading: false };
+      return { ...state, ...INITIAL_STATE, user: action.payload };
     case LOGIN_USER_FAILURE:
       return { ...state, error: AUTHENTICATION_FAILURE, password: '', loading: false };
     default:
