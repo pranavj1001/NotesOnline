@@ -5,6 +5,7 @@ import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { Card, CardSection, Input, Button } from './common';
 
 class LoginForm extends Component {
+
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
@@ -19,6 +20,8 @@ class LoginForm extends Component {
   }
 
   render() {
+    const { errorTextStyle } = styles;
+
     return (
       <Card>
         <CardSection>
@@ -40,7 +43,7 @@ class LoginForm extends Component {
           />
         </CardSection>
 
-        <Text>
+        <Text style={errorTextStyle}>
           {this.props.error}
         </Text>
 
@@ -53,6 +56,14 @@ class LoginForm extends Component {
     );
   }
 }
+
+const styles = {
+  errorTextStyle: {
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'red'
+  }
+};
 
 const mapStateToProps = ({ authentication }) => {
   const { email, password, error } = authentication;
