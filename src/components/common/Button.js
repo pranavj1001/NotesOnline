@@ -23,7 +23,6 @@ const styles = {
     marginLeft: 5,
     marginRight: 5,
     marginBottom: 10,
-    marginTop: 10
   },
   buttonTextStyle: {
     alignSelf: 'center',
