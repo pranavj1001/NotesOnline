@@ -30,9 +30,17 @@ class LoginForm extends Component {
     );
   }
 
-  render() {
-    const { errorTextStyle } = styles;
+  renderFailureMessage() {
+    if (this.props.error.length !== 0) {
+      return (
+        <Text style={styles.errorTextStyle}>
+          {this.props.error}
+        </Text>
+      );
+    }
+  }
 
+  render() {
     return (
       <Card>
         <CardSection>
@@ -54,9 +62,7 @@ class LoginForm extends Component {
           />
         </CardSection>
 
-        <Text style={errorTextStyle}>
-          {this.props.error}
-        </Text>
+        {this.renderFailureMessage()}
 
         <CardSection>
           {this.renderButtonOrSpinner()}
