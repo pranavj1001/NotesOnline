@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import Router from './Router';
+import FireBaseConfig from './FireBaseConfig';
 
 const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
@@ -12,10 +13,7 @@ class App extends Component {
 
   componentWillMount() {
     // Initialize Firebase
-    const config = {
-      // your config details go here
-    };
-    firebase.initializeApp(config);
+    firebase.initializeApp(FireBaseConfig);
   }
 
   render() {
