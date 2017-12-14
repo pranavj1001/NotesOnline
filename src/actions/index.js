@@ -43,7 +43,7 @@ const loginUserSuccess = (dispatch, user) => {
     payload: user
   });
 
-  Actions.notesList();
+  Actions.main();
 };
 
 const loginUserFailure = (dispatch) => {

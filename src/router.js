@@ -6,9 +6,14 @@ import NotesList from './components/NotesList';
 const RouterComponent = () => {
   return (
     <Router>
-      <Stack key="root">
-        <Scene key="login" component={LoginForm} title="Please Login" initial />
-        <Scene key="notesList" component={NotesList} title="Your Notes" />
+      <Stack key="root" hideNavBar>
+        <Scene key="authentication">
+          <Scene key="login" component={LoginForm} title="Please Login" initial />
+        </Scene>
+
+        <Scene key="main">
+          <Scene key="notesList" component={NotesList} title="Your Notes" />
+        </Scene>
       </Stack>
     </Router>
   );
