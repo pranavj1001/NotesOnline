@@ -77,7 +77,8 @@ const styles = {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red',
-    marginTop: 10
+    marginTop: 10,
+    marginBottom: 10
   }
 };
 
