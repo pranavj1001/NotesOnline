@@ -19,6 +19,7 @@ const RouterComponent = () => {
             key="notesList"
             component={NotesList}
             title="Your Notes"
+            initial
           />
           <Scene key="createNewNote" component={CreateNewNote} title="New Note" />
         </Stack>
