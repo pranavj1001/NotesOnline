@@ -7,13 +7,19 @@ const RouterComponent = () => {
   return (
     <Router>
       <Stack key="root" hideNavBar>
-        <Scene key="authentication">
+        <Stack key="authentication">
           <Scene key="login" component={LoginForm} title="Please Login" initial />
-        </Scene>
+        </Stack>
 
-        <Scene key="main">
-          <Scene key="notesList" component={NotesList} title="Your Notes" />
-        </Scene>
+        <Stack key="main">
+          <Scene
+            rightTitle="Add"
+            onRight={() => console.log('Hey')}
+            key="notesList"
+            component={NotesList}
+            title="Your Notes"
+          />
+        </Stack>
       </Stack>
     </Router>
   );
