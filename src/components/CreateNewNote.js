@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Picker } from 'react-native';
+import { Picker, Text, View } from 'react-native';
 import { Card, CardSection, Input, Button } from './common';
 import { noteUpdate } from '../actions';
 
@@ -35,9 +35,9 @@ class CreateNewNote extends Component {
             />
           </CardSection>
 
-          <CardSection>
+          <CardSection style={{ flexDirection: 'column' }}>
+            <Text style={styles.pickerLabelStyle}>Select the day</Text>
             <Picker
-              style={{ flex: 1 }}
               selectedValue={this.props.day}
               onValueChange={value => this.props.noteUpdate({ prop: 'day', value })}
             >
@@ -58,6 +58,13 @@ class CreateNewNote extends Component {
       );
     }
 }
+
+const styles = {
+  pickerLabelStyle: {
+    fontSize: 18,
+    paddingLeft: 10
+  }
+};
 
 const mapStateToProps = (state) => {
   const { title, note, phone, day } = state.noteForm;
