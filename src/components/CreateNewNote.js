@@ -37,6 +37,7 @@ class CreateNewNote extends Component {
 
           <CardSection>
             <Picker
+              style={{ flex: 1 }}
               selectedValue={this.props.day}
               onValueChange={value => this.props.noteUpdate({ prop: 'day', value })}
             >
