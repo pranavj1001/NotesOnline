@@ -4,3 +4,5 @@ export const LOGIN_USER_SUCCESS = 'login_user_success';
 export const LOGIN_USER_FAILURE = 'login_user_failure';
 export const AUTHENTICATION_FAILURE = 'Authentication Failed'; // error message
 export const LOGIN_USER_START = 'login_user_start';
+
+export const NOTE_UPDATE = 'note_update';
