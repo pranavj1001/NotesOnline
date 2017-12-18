@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Picker } from 'react-native';
 import { Card, CardSection, Input, Button } from './common';
 import { noteUpdate } from '../actions';
 
@@ -35,6 +36,21 @@ class CreateNewNote extends Component {
           </CardSection>
 
           <CardSection>
+            <Picker
+              selectedValue={this.props.day}
+              onValueChange={value => this.props.noteUpdate({ prop: 'day', value })}
+            >
+              <Picker.Item label="Monday" value="Monday" />
+              <Picker.Item label="Tuesday" value="Tuesday" />
+              <Picker.Item label="Wednesday" value="Wednesday" />
+              <Picker.Item label="Thursday" value="Thursday" />
+              <Picker.Item label="Friday" value="Friday" />
+              <Picker.Item label="Saturday" value="Saturday" />
+              <Picker.Item label="Sunday" value="Sunday" />
+            </Picker>
+          </CardSection>
+
+          <CardSection>
             <Button>Save</Button>
           </CardSection>
         </Card>
@@ -43,8 +59,8 @@ class CreateNewNote extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { title, note, phone } = state.noteForm;
-  return { title, note, phone };
+  const { title, note, phone, day } = state.noteForm;
+  return { title, note, phone, day };
 };
 
 export default connect(mapStateToProps, { noteUpdate })(CreateNewNote);
