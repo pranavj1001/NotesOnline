@@ -27,7 +27,7 @@ class CreateNewNote extends Component {
           </CardSection>
 
           <CardSection>
-            <Button>Create</Button>
+            <Button>Save</Button>
           </CardSection>
         </Card>
       );
