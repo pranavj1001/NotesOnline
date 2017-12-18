@@ -1,12 +1,35 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { Card, CardSection, Input, Button } from './common';
 
 class CreateNewNote extends Component {
     render() {
       return (
-        <View>
-          <Text>Create a new Note</Text>
-        </View>
+        <Card>
+          <CardSection>
+            <Input
+              label="Title"
+              placeholder="Shopping List"
+            />
+          </CardSection>
+
+          <CardSection>
+            <Input
+              label="Note"
+              placeholder="milk, cheese and salt"
+            />
+          </CardSection>
+
+          <CardSection>
+            <Input
+              label="Phone"
+              placeholder="9876543210"
+            />
+          </CardSection>
+
+          <CardSection>
+            <Button>Create</Button>
+          </CardSection>
+        </Card>
       );
     }
 }
