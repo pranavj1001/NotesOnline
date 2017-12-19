@@ -7,7 +7,7 @@ import { noteUpdate, noteCreate } from '../actions';
 class CreateNewNote extends Component {
   onButtonPress() {
     const { title, note, phone, day } = this.props;
-    this.props.noteCreate({ title, note, phone, day });
+    this.props.noteCreate({ title, note, phone, day: day || 'Monday' });
   }
 
     render() {
