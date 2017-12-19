@@ -8,3 +8,7 @@ export const noteUpdate = ({ prop, value }) => {
     payload: { prop, value }
   };
 };
+
+export const noteCreate = ({ title, note, phone, day }) => {
+  console.log(title, note, phone, day);
+};

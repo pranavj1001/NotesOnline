@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Picker, Text, View } from 'react-native';
+import { Picker, Text } from 'react-native';
 import { Card, CardSection, Input, Button } from './common';
-import { noteUpdate } from '../actions';
+import { noteUpdate, noteCreate } from '../actions';
 
 class CreateNewNote extends Component {
+  onButtonPress() {
+    const { title, note, phone, day } = this.props;
+    this.props.noteCreate({ title, note, phone, day });
+  }
+
     render() {
       return (
         <Card>
@@ -52,7 +57,9 @@ class CreateNewNote extends Component {
           </CardSection>
 
           <CardSection>
-            <Button>Save</Button>
+            <Button onPress={this.onButtonPress.bind(this)}>
+              Save
+            </Button>
           </CardSection>
         </Card>
       );
@@ -71,4 +78,4 @@ const mapStateToProps = (state) => {
   return { title, note, phone, day };
 };
 
-export default connect(mapStateToProps, { noteUpdate })(CreateNewNote);
+export default connect(mapStateToProps, { noteUpdate, noteCreate })(CreateNewNote);
