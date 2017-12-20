@@ -6,3 +6,4 @@ export const AUTHENTICATION_FAILURE = 'Authentication Failed'; // error message
 export const LOGIN_USER_START = 'login_user_start';
 
 export const NOTE_UPDATE = 'note_update';
+export const NOTE_CREATE = 'note_create';
