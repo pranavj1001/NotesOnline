@@ -31,6 +31,8 @@ export const notesFetch = () => {
 
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/notes`)
+    // this event handler will last for the entire lifecycle of this app
+    // it will automatically dispatch the action to the reducer
       .on('value', snapshot => {
         dispatch({
           type: NOTES_FETCH_SUCCESS,

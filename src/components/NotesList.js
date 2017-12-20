@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { connect } from 'react-redux';
+import { notesFetch } from '../actions';
 
 class NotesList extends Component {
+  componentWillMount() {
+    this.props.notesFetch();
+  }
+
   render() {
     return (
       <View>
@@ -15,4 +21,4 @@ class NotesList extends Component {
   }
 }
 
-export default NotesList;
+export default connect(null, { notesFetch })(NotesList);
