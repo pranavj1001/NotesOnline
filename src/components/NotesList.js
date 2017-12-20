@@ -1,8 +1,9 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { View, Text, ListView } from 'react-native';
+import { ListView } from 'react-native';
 import { connect } from 'react-redux';
 import { notesFetch } from '../actions';
+import NoteListItem from './NoteListItem';
 
 class NotesList extends Component {
   componentWillMount() {
@@ -26,16 +27,18 @@ class NotesList extends Component {
     this.dataSource = ds.cloneWithRows(notes);
   }
 
+  renderRow(notes) {
+    return <NoteListItem notes={notes} />;
+  }
+
   render() {
     console.log(this.props);
     return (
-      <View>
-        <Text>Testing List</Text>
-        <Text>Testing List</Text>
-        <Text>Testing List</Text>
-        <Text>Testing List</Text>
-        <Text>Testing List</Text>
-      </View>
+      <ListView
+        enableEmptySections
+        dataSource={this.dataSource}
+        renderRow={this.renderRow}
+      />
     );
   }
 }
