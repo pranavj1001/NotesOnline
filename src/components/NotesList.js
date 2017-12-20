@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { View, Text, ListView } from 'react-native';
 import { connect } from 'react-redux';
@@ -26,6 +27,7 @@ class NotesList extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <View>
         <Text>Testing List</Text>
@@ -38,4 +40,17 @@ class NotesList extends Component {
   }
 }
 
-export default connect(null, { notesFetch })(NotesList);
+const mapStateToProps = (state) => {
+  // state.notes is a object with many key value pairs
+  // so iterate through every pair and run the arrow function
+  // val is the user model i.e. title, note, phone and day
+  // map function takes all these new objects and make it an array
+  const notes = _.map(state.notes, (val, uid) => {
+    // { title: 'list', note: 'get this', phone: '423214', day: 'Monday', id: '241nj13bkjs' }
+    return { ...val, uid };
+  });
+
+  return { notes };
+};
+
+export default connect(mapStateToProps, { notesFetch })(NotesList);
