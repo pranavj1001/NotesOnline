@@ -5,7 +5,7 @@ import { CardSection } from './common';
 
 class NoteListItem extends Component {
   onRowPress() {
-    Actions.createNewNote();
+    Actions.createNewNote({ notes: this.props.notes });
   }
 
   render() {
