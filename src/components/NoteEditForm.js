@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
+import Communications from 'react-native-communications';
 import { connect } from 'react-redux';
 import NoteForm from './NoteForm';
 import { noteUpdate, noteSave } from '../actions';
@@ -17,6 +18,13 @@ class NoteEditForm extends Component {
     this.props.noteSave({ title, note, phone, day, uid: this.props.notes.uid });
   }
 
+  onTextPress() {
+    const { title, note, phone, day } = this.props;
+    const message = `This is reminder for your note: '${title}'. ` +
+    `The content is: '${note}'. The day is set to ${day}`;
+    Communications.text(phone, message);
+  }
+
   render() {
     return (
       <Card>
@@ -24,6 +32,11 @@ class NoteEditForm extends Component {
         <CardSection>
           <Button onPress={this.onButtonPress.bind(this)}>
             Save Changes
+          </Button>
+        </CardSection>
+        <CardSection>
+          <Button onPress={this.onTextPress.bind(this)}>
+            Text Reminder
           </Button>
         </CardSection>
       </Card>
