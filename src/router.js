@@ -2,6 +2,7 @@ import React from 'react';
 import { Stack, Scene, Router, Actions } from 'react-native-router-flux';
 import LoginForm from './components/LoginForm';
 import NotesList from './components/NotesList';
+import NoteEditForm from './components/NoteEditForm';
 import CreateNewNote from './components/CreateNewNote';
 
 const RouterComponent = () => {
@@ -22,6 +23,7 @@ const RouterComponent = () => {
             initial
           />
           <Scene key="createNewNote" component={CreateNewNote} title="New Note" />
+          <Scene key="noteEdit" component={NoteEditForm} title="Edit Note" />
         </Stack>
       </Stack>
     </Router>
