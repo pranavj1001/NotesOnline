@@ -13,9 +13,7 @@ class CreateNewNote extends Component {
     render() {
       return (
         <Card>
-
           <NoteForm {...this.props} />
-
           <CardSection>
             <Button onPress={this.onButtonPress.bind(this)}>
               Save
