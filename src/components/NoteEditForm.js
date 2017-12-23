@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import NoteForm from './NoteForm';
-import { noteUpdate } from '../actions';
+import { noteUpdate, noteSave } from '../actions';
 import { Card, CardSection, Button } from './common';
 
 class NoteEditForm extends Component {
@@ -14,13 +14,13 @@ class NoteEditForm extends Component {
 
   onButtonPress() {
     const { title, note, phone, day } = this.props;
-    console.log(title, note, phone, day);
+    this.props.noteSave({ title, note, phone, day, uid: this.props.notes.uid });
   }
 
   render() {
     return (
       <Card>
-        <NoteForm {...this.props} />
+        <NoteForm />
         <CardSection>
           <Button onPress={this.onButtonPress.bind(this)}>
             Save Changes
@@ -36,4 +36,4 @@ const mapStateToProps = (state) => {
   return { title, note, phone, day };
 };
 
-export default connect(mapStateToProps, { noteUpdate })(NoteEditForm);
+export default connect(mapStateToProps, { noteUpdate, noteSave })(NoteEditForm);

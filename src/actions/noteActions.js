@@ -41,3 +41,13 @@ export const notesFetch = () => {
       });
   };
 };
+
+export const noteSave = ({ title, note, phone, day, uid }) => {
+  const { currentUser } = firebase.auth();
+
+  return () => {
+    firebase.database().ref(`/users/${currentUser.uid}/notes/${uid}`)
+      .set({ title, note, phone, day, uid })
+      .then(() => console.log('saved', uid));
+  };
+};
