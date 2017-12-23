@@ -62,4 +62,9 @@ const styles = {
   }
 };
 
-export default NoteUpdateForm;
+const mapStateToProps = (state) => {
+  const { title, note, phone, day } = state.noteForm;
+  return { title, note, phone, day };
+};
+
+export default connect(mapStateToProps, { noteUpdate })(NoteUpdateForm);

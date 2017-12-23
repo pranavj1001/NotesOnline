@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardSection, Button } from './common';
 import { noteUpdate, noteCreate } from '../actions';
+import NoteForm from './NoteForm';
 
 class CreateNewNote extends Component {
   onButtonPress() {
@@ -12,6 +13,9 @@ class CreateNewNote extends Component {
     render() {
       return (
         <Card>
+
+          <NoteForm {...this.props} />
+
           <CardSection>
             <Button onPress={this.onButtonPress.bind(this)}>
               Save
