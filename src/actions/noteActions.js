@@ -3,7 +3,8 @@ import { Actions } from 'react-native-router-flux';
 import {
   NOTE_UPDATE,
   NOTE_CREATE,
-  NOTES_FETCH_SUCCESS
+  NOTES_FETCH_SUCCESS,
+  NOTE_SAVE_SUCCES
 } from './types';
 
 export const noteUpdate = ({ prop, value }) => {
@@ -45,9 +46,14 @@ export const notesFetch = () => {
 export const noteSave = ({ title, note, phone, day, uid }) => {
   const { currentUser } = firebase.auth();
 
-  return () => {
+  return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/notes/${uid}`)
       .set({ title, note, phone, day, uid })
-      .then(() => console.log('saved', uid));
+      .then(() => {
+        dispatch({
+          type: NOTE_SAVE_SUCCES
+        });
+        Actions.main({ type: 'reset' });
+      });
   };
 };

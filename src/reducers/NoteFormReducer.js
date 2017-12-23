@@ -1,6 +1,7 @@
 import {
   NOTE_UPDATE,
-  NOTE_CREATE
+  NOTE_CREATE,
+  NOTE_SAVE_SUCCES
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -16,6 +17,8 @@ export default (state = INITIAL_STATE, action) => {
       // action.payload === { prop: 'title' value: 'Shopping List' }
       return { ...state, [action.payload.prop]: action.payload.value };
     case NOTE_CREATE:
+      return INITIAL_STATE;
+    case NOTE_SAVE_SUCCES:
       return INITIAL_STATE;
     default:
     return state;
