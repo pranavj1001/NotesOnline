@@ -8,4 +8,5 @@ export const LOGIN_USER_START = 'login_user_start';
 export const NOTE_UPDATE = 'note_update';
 export const NOTE_CREATE = 'note_create';
 export const NOTES_FETCH_SUCCESS = 'notes_fetch_success';
-export const NOTE_SAVE_SUCCES = 'note_save_success';
+export const NOTE_SAVE_SUCCESS = 'note_save_success';
+export const NOTES_CLEAR_CACHE = 'notes_clear_cache';

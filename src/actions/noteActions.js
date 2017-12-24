@@ -4,7 +4,8 @@ import {
   NOTE_UPDATE,
   NOTE_CREATE,
   NOTES_FETCH_SUCCESS,
-  NOTE_SAVE_SUCCES
+  NOTE_SAVE_SUCCESS,
+  NOTES_CLEAR_CACHE
 } from './types';
 
 export const noteUpdate = ({ prop, value }) => {
@@ -51,9 +52,15 @@ export const noteSave = ({ title, note, phone, day, uid }) => {
       .set({ title, note, phone, day, uid })
       .then(() => {
         dispatch({
-          type: NOTE_SAVE_SUCCES
+          type: NOTE_SAVE_SUCCESS
         });
         Actions.main({ type: 'reset' });
       });
+  };
+};
+
+export const clearState = () => {
+  return {
+    type: NOTES_CLEAR_CACHE,
   };
 };

@@ -2,11 +2,14 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import Communications from 'react-native-communications';
 import { connect } from 'react-redux';
+import { ScrollView } from 'react-native';
 import NoteForm from './NoteForm';
 import { noteUpdate, noteSave } from '../actions';
 import { Card, CardSection, Button, ConfirmModal } from './common';
 
 class NoteEditForm extends Component {
+  state = { showModal: false }
+
   componentWillMount() {
     _.each(this.props.notes, (value, prop) => {
       this.props.noteUpdate({ prop, value });
@@ -27,19 +30,36 @@ class NoteEditForm extends Component {
 
   render() {
     return (
-      <Card>
-        <NoteForm />
-        <CardSection>
-          <Button onPress={this.onButtonPress.bind(this)}>
-            Save Changes
-          </Button>
-        </CardSection>
-        <CardSection>
-          <Button onPress={this.onTextPress.bind(this)}>
-            Text Reminder
-          </Button>
-        </CardSection>
-      </Card>
+      <ScrollView>
+        <Card>
+
+          <NoteForm />
+
+          <CardSection>
+            <Button onPress={this.onButtonPress.bind(this)}>
+              Save Changes
+            </Button>
+          </CardSection>
+
+          <CardSection>
+            <Button onPress={this.onTextPress.bind(this)}>
+              Text Reminder
+            </Button>
+          </CardSection>
+
+          <CardSection>
+            <Button onPress={() => this.setState({ showModal: !this.state.showModal })}>
+              Delete Note
+            </Button>
+          </CardSection>
+
+          <ConfirmModal
+            visible={this.state.showModal}
+          >
+            Are you sure you want to delete this note?
+          </ConfirmModal>
+        </Card>
+      </ScrollView>
     );
   }
 }
