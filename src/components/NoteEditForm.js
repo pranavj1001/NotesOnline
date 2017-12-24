@@ -4,7 +4,7 @@ import Communications from 'react-native-communications';
 import { connect } from 'react-redux';
 import { ScrollView } from 'react-native';
 import NoteForm from './NoteForm';
-import { noteUpdate, noteSave } from '../actions';
+import { noteUpdate, noteSave, noteDelete } from '../actions';
 import { Card, CardSection, Button, ConfirmModal } from './common';
 
 class NoteEditForm extends Component {
@@ -33,7 +33,7 @@ class NoteEditForm extends Component {
   }
 
   onAccept() {
-    
+    this.props.noteDelete({ uid: this.props.notes.uid });
   }
 
   render() {
@@ -79,4 +79,4 @@ const mapStateToProps = (state) => {
   return { title, note, phone, day };
 };
 
-export default connect(mapStateToProps, { noteUpdate, noteSave })(NoteEditForm);
+export default connect(mapStateToProps, { noteUpdate, noteSave, noteDelete })(NoteEditForm);
