@@ -4,7 +4,7 @@ import Communications from 'react-native-communications';
 import { connect } from 'react-redux';
 import NoteForm from './NoteForm';
 import { noteUpdate, noteSave } from '../actions';
-import { Card, CardSection, Button } from './common';
+import { Card, CardSection, Button, ConfirmModal } from './common';
 
 class NoteEditForm extends Component {
   componentWillMount() {
