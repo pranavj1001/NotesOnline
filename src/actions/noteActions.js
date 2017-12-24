@@ -64,3 +64,15 @@ export const clearState = () => {
     type: NOTES_CLEAR_CACHE,
   };
 };
+
+export const noteDelete = ({ uid }) => {
+  const { currentUser } = firebase.auth();
+
+  return () => {
+    firebase.database().ref(`/users/${currentUser.uid}/notes/${uid}`)
+      .remove()
+      .then(() => {
+        Actions.main({ type: 'reset' });
+      });
+  };
+};
