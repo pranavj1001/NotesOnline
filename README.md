@@ -12,7 +12,7 @@ It is developed using react-native and redux. It uses firebase to store the data
   <img src="working.gif">
 </p>
 
-## Screenshot
+## Screenshots
 
 <p float="left">
   <img src="ScreenShot1.png" width="32%" >
