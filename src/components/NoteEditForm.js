@@ -28,6 +28,14 @@ class NoteEditForm extends Component {
     Communications.text(phone, message);
   }
 
+  onDecline() {
+    this.setState({ showModal: false });
+  }
+
+  onAccept() {
+    
+  }
+
   render() {
     return (
       <ScrollView>
@@ -48,13 +56,15 @@ class NoteEditForm extends Component {
           </CardSection>
 
           <CardSection>
-            <Button onPress={() => this.setState({ showModal: !this.state.showModal })}>
+            <Button onPress={() => this.setState({ showModal: true })}>
               Delete Note
             </Button>
           </CardSection>
 
           <ConfirmModal
             visible={this.state.showModal}
+            onAccept={this.onAccept.bind(this)}
+            onDecline={this.onDecline.bind(this)}
           >
             Are you sure you want to delete this note?
           </ConfirmModal>
