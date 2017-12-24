@@ -13,7 +13,7 @@ class App extends Component {
   componentWillMount() {
     // Initialize Firebase
     firebase.initializeApp({
-      
+      // config details go here
     });
   }
 
